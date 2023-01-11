@@ -1,3 +1,4 @@
+"use client";
 import Head from "next/head";
 
 export default function Home() {
@@ -9,6 +10,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className="container">
+        <div className="d-flex flex-column align-items-center">
+          <h1 className="text-center m-3">Weather Forecast App</h1>
+          <div className="form-floating mb-3 w-75">
+            <input
+              type="text"
+              className="form-control"
+              id="floatingInput"
+              placeholder="location"
+            />
+            <label for="floatingInput">Location</label>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
