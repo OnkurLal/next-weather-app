@@ -1,7 +1,30 @@
 "use client";
 import Head from "next/head";
+import { useState } from "react";
+import data from "../lib/city.list.json";
 
 export default function Home() {
+  const [inputValue, setInputValue] = useState("");
+  const [matchingCityResults, setMatchingCityResults] = useState([]);
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+    let matchingCities = [];
+    for (let city of data) {
+      const match = city.name
+        .toLowerCase()
+        .startsWith(inputValue.toLowerCase());
+      if (match) {
+        const cityData = {
+          ...city,
+          slug: `${city.name.toLowerCase().replace(/ /g, "-")}-${city.id}`,
+        };
+        matchingCities.push(cityData);
+      }
+      setMatchingCityResults(matchingCities);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -18,8 +41,20 @@ export default function Home() {
               className="form-control"
               id="floatingInput"
               placeholder="location"
+              onChange={(e) => handleChange(e)}
+              value={inputValue}
             />
             <label for="floatingInput">Location</label>
+            <ul>
+              {matchingCityResults.length > 0
+                ? matchingCityResults.map((city) => (
+                    <li>
+                      {city.name} {city.state ? `, ${city.state}` : ""} `(
+                      {city.country})
+                    </li>
+                  ))
+                : null}
+            </ul>
           </div>
         </div>
       </div>
