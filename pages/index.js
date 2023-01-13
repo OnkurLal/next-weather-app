@@ -2,6 +2,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import data from "../lib/city.list.json";
+import Link from "next/link";
 
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
@@ -49,10 +50,12 @@ export default function Home() {
               <ul>
                 {matchingCityResults.length > 0
                   ? matchingCityResults.map((city) => (
-                      <li key={city.id}>
-                        {city.name}
-                        {city.state ? `, ${city.state}` : ""} ({city.country})
-                      </li>
+                      <Link key={city.id} href={`/location/${city.slug}`}>
+                        <li>
+                          {city.name}
+                          {city.state ? `, ${city.state}` : ""} ({city.country})
+                        </li>
+                      </Link>
                     ))
                   : "The city is misspelled or not in our system."}
               </ul>
