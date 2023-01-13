@@ -44,17 +44,19 @@ export default function Home() {
               onChange={(e) => handleChange(e)}
               value={inputValue}
             />
-            <label for="floatingInput">Location</label>
-            <ul>
-              {matchingCityResults.length > 0
-                ? matchingCityResults.map((city) => (
-                    <li>
-                      {city.name} {city.state ? `, ${city.state}` : ""} `(
-                      {city.country})
-                    </li>
-                  ))
-                : null}
-            </ul>
+            <label htmlFor="floatingInput">Location</label>
+            {inputValue.length > 2 ? (
+              <ul>
+                {matchingCityResults.length > 0
+                  ? matchingCityResults.map((city) => (
+                      <li>
+                        {city.name} {city.state ? `, ${city.state}` : ""} (
+                        {city.country})
+                      </li>
+                    ))
+                  : null}
+              </ul>
+            ) : null}
           </div>
         </div>
       </div>
