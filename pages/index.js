@@ -13,7 +13,7 @@ export default function Home() {
     for (let city of data) {
       const match = city.name
         .toLowerCase()
-        .startsWith(inputValue.toLowerCase());
+        .startsWith(e.target.value.toLowerCase());
       if (match) {
         const cityData = {
           ...city,
@@ -49,12 +49,12 @@ export default function Home() {
               <ul>
                 {matchingCityResults.length > 0
                   ? matchingCityResults.map((city) => (
-                      <li>
-                        {city.name} {city.state ? `, ${city.state}` : ""} (
-                        {city.country})
+                      <li key={city.id}>
+                        {city.name}
+                        {city.state ? `, ${city.state}` : ""} ({city.country})
                       </li>
                     ))
-                  : null}
+                  : "The city is misspelled or not in our system."}
               </ul>
             ) : null}
           </div>
