@@ -26,7 +26,7 @@ export default function LocationSearchBar() {
 
   return (
     <>
-      <div className="form-floating mb-3 w-75">
+      <div className="form-floating mb-3 w-50">
         <input
           type="text"
           className="form-control"
@@ -36,7 +36,7 @@ export default function LocationSearchBar() {
           value={inputValue}
         />
         <label htmlFor="floatingInput">Location</label>
-        {inputValue.length > 2 ? (
+        {inputValue.length >= 2 ? (
           <ul>
             {matchingCityResults.length > 0
               ? matchingCityResults.map((city) => (
