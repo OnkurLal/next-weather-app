@@ -1,7 +1,5 @@
 import LocationSearchBar from "../../components/LocationSearchBar";
 import Link from "next/link";
-import Head from "next/head";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function City() {
   return (
