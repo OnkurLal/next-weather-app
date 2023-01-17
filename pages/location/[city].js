@@ -7,7 +7,9 @@ export default function City() {
       <div className="container mt-5">
         <div className="d-flex justify-content-center">
           <p className="w-50">
-            <Link href={"/"}>&larr; Home</Link>
+            <Link href={"/"} className="text-decoration-none text-white">
+              &larr; Home
+            </Link>
           </p>
         </div>
         <div className="d-flex justify-content-center">

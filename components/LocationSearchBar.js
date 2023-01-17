@@ -31,17 +31,25 @@ export default function LocationSearchBar() {
           type="text"
           className="form-control"
           id="floatingInput"
-          placeholder="location"
+          placeholder="Location (city)"
           onChange={(e) => handleChange(e)}
           value={inputValue}
         />
-        <label htmlFor="floatingInput">Location</label>
+        <label htmlFor="floatingInput" className="text-black">
+          Location (city)
+        </label>
         {inputValue.length >= 2 ? (
-          <ul>
+          <ul className="list-group ">
+            {" "}
             {matchingCityResults.length > 0
               ? matchingCityResults.map((city) => (
-                  <Link key={city.id} href={`/location/${city.slug}`}>
-                    <li>
+                  <Link
+                    href={`/location/${city.slug}`}
+                    className="text-decoration-none list-group-item list-group-item-action text-black"
+                    style={{ listStyle: "none" }}
+                    key={city.id}
+                  >
+                    <li className="fw-bold py-1">
                       {city.name}
                       {city.state ? `, ${city.state}` : ""} ({city.country})
                     </li>
