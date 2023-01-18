@@ -20,7 +20,7 @@ export async function getServerSideProps(context) {
   }
 
   const res = await fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${filteredCity[0].coord.lat}&lon=${filteredCity[0].coord.lon}&appid=ab185f39ec853d46319cc49b2fbb1f9f&units=imperial`
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${filteredCity[0].coord.lat}&lon=${filteredCity[0].coord.lon}&appid=${process.env.WEATHER_API_KEY}&units=imperial`
   );
   const data = await res.json();
   if (!data) {
