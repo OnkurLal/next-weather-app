@@ -26,7 +26,7 @@ export default function LocationSearchBar() {
 
   return (
     <>
-      <div className="form-floating mb-3 w-50">
+      <div className="form-floating mb-3 w-75">
         <input
           type="text"
           className="form-control"
