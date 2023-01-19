@@ -27,17 +27,16 @@ export async function getServerSideProps(context) {
     return { notFound: true };
   }
   const timeZone = data.timezone;
-
   return {
     props: {
       city: filteredCity,
       currentTemp: Number(data.current.temp).toFixed(1),
       high: Number(data.daily[0].temp.max).toFixed(1),
       low: Number(data.daily[0].temp.min).toFixed(1),
-      icon: `http://openweathermap.org/img/wn/${data.daily[0].weather[0].icon}.png`,
-      description: data.daily[0].weather[0].description,
-      sunrise: moment.unix(data.daily[0].sunrise).tz(timeZone).format("LT"),
-      sunset: moment.unix(data.daily[0].sunset).tz(timeZone).format("LT"),
+      icon: `http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`,
+      description: data.current.weather[0].description,
+      sunrise: moment.unix(data.current.sunrise).tz(timeZone).format("LT"),
+      sunset: moment.unix(data.current.sunset).tz(timeZone).format("LT"),
     },
   };
 }

@@ -48,6 +48,7 @@ export default function LocationSearchBar() {
                     className="text-decoration-none list-group-item list-group-item-action text-black"
                     style={{ listStyle: "none" }}
                     key={city.id}
+                    onClick={() => setInputValue("")}
                   >
                     <li className="fw-bold py-1">
                       {city.name}
