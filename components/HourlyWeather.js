@@ -16,7 +16,7 @@ export default function HourlyWeather({ hourlyData, timeZone }) {
                 src={`http://openweathermap.org/img/wn/${item.weather[0].icon}.png`}
               ></img>
             </div>
-            <div>{item.temp} °F</div>
+            <div>{Number(item.temp).toFixed(1)}°F</div>
           </div>
         ) : null}
       </>
