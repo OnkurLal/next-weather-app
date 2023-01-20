@@ -73,11 +73,14 @@ export default function City(props) {
             sunset={props.sunset}
           />
         </div>
-        <div>
-          <HourlyWeather
-            hourlyData={props.hourlyData}
-            timeZone={props.timeZone}
-          />
+        <div className="container w-75  pt-1">
+          <h4 className="py-1 ">12 Hour Forecast</h4>
+          <div className="py-1">
+            <HourlyWeather
+              hourlyData={props.hourlyData}
+              timeZone={props.timeZone}
+            />
+          </div>
         </div>
       </div>
     </>
