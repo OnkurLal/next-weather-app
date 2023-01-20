@@ -3,6 +3,7 @@ import Link from "next/link";
 import cityData from "../../lib/city.list.json";
 import CurrentWeather from "../../components/CurrentWeather";
 import moment from "moment-timezone";
+import HourlyWeather from "../../components/HourlyWeather";
 
 export async function getServerSideProps(context) {
   const city = context.params.city.split("-");
@@ -27,6 +28,8 @@ export async function getServerSideProps(context) {
     return { notFound: true };
   }
   const timeZone = data.timezone;
+  console.log(data.hourly);
+
   return {
     props: {
       city: filteredCity,
@@ -37,6 +40,8 @@ export async function getServerSideProps(context) {
       description: data.current.weather[0].description,
       sunrise: moment.unix(data.current.sunrise).tz(timeZone).format("LT"),
       sunset: moment.unix(data.current.sunset).tz(timeZone).format("LT"),
+      hourlyData: data.hourly,
+      timeZone: timeZone,
     },
   };
 }
@@ -66,6 +71,12 @@ export default function City(props) {
             description={props.description}
             sunrise={props.sunrise}
             sunset={props.sunset}
+          />
+        </div>
+        <div>
+          <HourlyWeather
+            hourlyData={props.hourlyData}
+            timeZone={props.timeZone}
           />
         </div>
       </div>
