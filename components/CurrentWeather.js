@@ -10,10 +10,7 @@ export default function CurrentWeather({
 }) {
   return (
     <>
-      <div
-        className="card w-75 text-black"
-        style={{ backgroundColor: "yellow" }}
-      >
+      <div className="card w-75" style={{ backgroundColor: "#4361EE" }}>
         <div className="card-body p-3 row d-flex align-items-center">
           <div className="col">
             <div className="p-3">
