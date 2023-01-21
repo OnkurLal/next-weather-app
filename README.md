@@ -31,5 +31,5 @@ Deploy using netlify
 - CSS
 - Bootstrap
 - NextJS
-- Calls [OpenWeather](https://openweathermap.org/) API to the latest weather data available.
+- Calls the [OpenWeather](https://openweathermap.org/) API to get the latest weather data available.
 - The OpenWeather city data list was also downloaded and utilized for this project.
