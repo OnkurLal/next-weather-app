@@ -20,15 +20,15 @@ export default function CurrentWeather({
               <h3 className="fw-bold">Current Temperature {currentTemp}°F</h3>
             </div>
             <div className="ps-3 row d-flex align-items-end ">
-              <h4 className="col-2 fs-3 fw-bold ">{high}°F</h4>
-              <h4 className="col-2 fw-light">{low}°F</h4>
+              <h4 className="col-3 fs-3 fw-bold ">{high}°F</h4>
+              <h4 className="col-3 fw-light">{low}°F</h4>
             </div>
             <div className="row p-3">
-              <h5 className="col-2">
+              <h5 className="col-3">
                 <b>Sunrise</b> <br />
                 {sunrise}
               </h5>
-              <h5 className="col-2">
+              <h5 className="col-3">
                 <b>Sunset</b> <br />
                 {sunset}
               </h5>

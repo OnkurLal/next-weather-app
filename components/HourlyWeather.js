@@ -27,8 +27,8 @@ export default function HourlyWeather({ hourlyData, timeZone }) {
       className="horizontal-scroll-container d-inline-flex flex-nowrap"
       style={{ overflowX: "scroll", width: "100%" }}
     >
-      {hourlyWeatherMap.map((card) => {
-        return <div>{card}</div>;
+      {hourlyWeatherMap.map((card, index) => {
+        return <div key={index}>{card}</div>;
       })}
     </div>
   );

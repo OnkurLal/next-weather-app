@@ -47,7 +47,6 @@ export async function getServerSideProps(context) {
 }
 
 export default function City(props) {
-  console.log(props);
   return (
     <>
       <div className="container mt-5">

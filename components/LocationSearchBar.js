@@ -41,22 +41,29 @@ export default function LocationSearchBar() {
         {inputValue.length >= 2 ? (
           <ul className="list-group ">
             {" "}
-            {matchingCityResults.length > 0
-              ? matchingCityResults.map((city) => (
-                  <Link
-                    href={`/location/${city.slug}`}
-                    className="text-decoration-none list-group-item list-group-item-action text-black"
-                    style={{ listStyle: "none" }}
-                    key={city.id}
-                    onClick={() => setInputValue("")}
-                  >
-                    <li className="fw-bold py-1">
-                      {city.name}
-                      {city.state ? `, ${city.state}` : ""} ({city.country})
-                    </li>
-                  </Link>
-                ))
-              : "The city is misspelled or not in our system."}
+            {matchingCityResults.length > 0 ? (
+              matchingCityResults.map((city) => (
+                <Link
+                  href={`/location/${city.slug}`}
+                  className="text-decoration-none list-group-item list-group-item-action text-black"
+                  style={{ listStyle: "none" }}
+                  key={city.id}
+                  onClick={() => setInputValue("")}
+                >
+                  <li className="fw-bold py-1">
+                    {city.name}
+                    {city.state ? `, ${city.state}` : ""} ({city.country})
+                  </li>
+                </Link>
+              ))
+            ) : (
+              <p
+                className="bg-danger mt-3 p-2"
+                style={{ width: "fit-content" }}
+              >
+                The city is misspelled or not in our database.
+              </p>
+            )}
           </ul>
         ) : null}
       </div>
