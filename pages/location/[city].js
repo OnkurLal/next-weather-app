@@ -28,7 +28,6 @@ export async function getServerSideProps(context) {
     return { notFound: true };
   }
   const timeZone = data.timezone;
-  console.log(data.hourly);
 
   return {
     props: {
